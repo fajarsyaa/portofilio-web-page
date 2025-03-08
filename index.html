@@ -1,122 +1,209 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Saya</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 </head>
+
 <body class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-gray-900">
-    <header class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1500x800');">
+    <header class="relative h-screen flex items-center justify-center bg-cover bg-center"
+        style="background-image: url('https://via.placeholder.com/1500x800');">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div class="relative z-10 flex flex-col md:flex-row items-center text-white text-center md:text-left p-6 max-w-6xl mx-auto">
+        <div
+            class="relative z-10 flex flex-col md:flex-row items-center text-white text-center md:text-left p-6 max-w-6xl mx-auto">
             <div class="md:w-1/2 flex flex-col items-center md:items-start">
-                <h1 class="text-6xl font-extrabold leading-tight">Halo, Saya <span class="text-yellow-300">Mukhamad Fajar Syaihu Walid</span></h1>
-                <p class="text-xl mt-3">Seorang <span class="font-semibold">Backend Develooper | Web Developer | Fullstack Developer</span></p>
-                <p class="mt-4 text-lg max-w-lg">Saya membantu bisnis dan individu menciptakan solusi digital yang inovatif dan menarik.</p>
-                <a href="#contact" class="mt-6 inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-6 rounded-lg shadow-lg transition hover:bg-yellow-500">Hubungi Saya</a>
+                <h1 class="text-6xl font-extrabold leading-tight">Halo, Saya <span class="text-yellow-300">Mukhamad
+                        Fajar Syaihu Walid</span></h1>
+                <p class="text-xl mt-3">Seorang <span class="font-semibold">Backend Develooper | Web Developer |
+                        Fullstack Developer</span></p>
+                <p class="mt-4 text-lg max-w-lg">Saya membantu bisnis dan individu menciptakan solusi digital yang
+                    inovatif dan menarik.</p>
+                <a href="#contact"
+                    class="mt-6 inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-6 rounded-lg shadow-lg transition hover:bg-yellow-500">Hubungi
+                    Saya</a>
             </div>
             <div class="md:w-1/2 flex justify-center relative">
                 <img src="./pp.png" alt="Foto Profil" class="w-full h-auto object-cover opacity-80">
             </div>
         </div>
     </header>
-    
-    <section id="about" class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10 text-center">
+
+    <section id="about"
+        class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10 text-center">
         <h2 class="text-3xl font-bold mb-4">Tentang Saya</h2>
-        <p class="text-gray-700">Programmer berpengalaman dalam pengembangan aplikasi dan integrasi sistem. Sebagai webMethod programmer di Bank BNI, saya membangun middleware untuk menghubungkan microservices secara aman. Berkonstribusi pada aplikasi seperti WONDR by BNI, Agen46, dan BNI Direct. Selain itu, aktif sebagai freelance web developer, mengerjakan aplikasi web dengan fokus pada analisis kebutuhan, pengembangan fitur, dan keamanan. Lulusan Rekayasa Perangkat Lunak, Juara 2 kompetisi Web Design, dan penerima beasiswa dari SEVIMA.</p>
+        <p class="text-gray-700">Programmer berpengalaman dalam pengembangan aplikasi dan integrasi sistem. Sebagai
+            webMethod programmer di Bank BNI, saya membangun middleware untuk menghubungkan microservices secara aman.
+            Berkonstribusi pada aplikasi seperti WONDR by BNI, Agen46, dan BNI Direct. Selain itu, aktif sebagai
+            freelance web developer, mengerjakan aplikasi web dengan fokus pada analisis kebutuhan, pengembangan fitur,
+            dan keamanan. Lulusan Rekayasa Perangkat Lunak, Juara 2 kompetisi Web Design, dan penerima beasiswa dari
+            SEVIMA.</p>
     </section>
-    
-    <section id="services" class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10 text-center">
+
+    <section id="services"
+        class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10 text-center">
         <h2 class="text-3xl font-bold mb-4">Layanan</h2>
         <div class="grid md:grid-cols-3 gap-8">
             <div class="bg-blue-300 p-6 rounded-lg shadow-md">
                 <h3 class="text-2xl font-semibold mb-3">Backend Developer</h3>
-                <p class="text-gray-800">Mengembangkan API yang scalable dan aman, menerapkan JWT untuk otentikasi, mengintegrasikan API pihak ketiga, serta menangani throttling untuk menjaga performa sistem.</p>
+                <p class="text-gray-800">Mengembangkan API yang scalable dan aman, menerapkan JWT untuk otentikasi,
+                    mengintegrasikan API pihak ketiga, serta menangani throttling untuk menjaga performa sistem.</p>
             </div>
             <div class="bg-purple-300 p-6 rounded-lg shadow-md">
                 <h3 class="text-2xl font-semibold mb-3">Web Developer</h3>
-                <p class="text-gray-800">Membangun website responsif dan modern dengan teknologi terkini, mengoptimalkan kecepatan dan performa, serta mengintegrasikan website dengan CMS dan berbagai fitur interaktif.</p>
+                <p class="text-gray-800">Membangun website responsif dan modern dengan teknologi terkini, mengoptimalkan
+                    kecepatan dan performa, serta mengintegrasikan website dengan CMS dan berbagai fitur interaktif.</p>
             </div>
             <div class="bg-pink-300 p-6 rounded-lg shadow-md">
                 <h3 class="text-2xl font-semibold mb-3">Fullstack Developer</h3>
-                <p class="text-gray-800">Mengembangkan frontend menggunakan framework modern seperti Bootstrap, membangun backend dengan Laravel atau GIN, mengelola database MySQL, PostgreSQL,Redis, dan MongoDB, serta melakukan deployment.</p>
-            </div>
-        </div>    
-    </section>
-
-    <section id="skills" class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10">
-        <h2 class="text-3xl font-bold text-center mb-6">Skill</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-pink-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                <img src="./go.png" alt="Golang" class="mb-3 w-16 h-16">
-                <h3 class="text-2xl font-semibold mb-3">Golang</h3>
-                <p class="text-gray-800">Bahasa pemrograman efisien untuk backend dan sistem terdistribusi.</p>
-            </div>
-            <div class="bg-purple-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                <img src="./laravel.png" alt="Laravel" class="mb-3 w-16 h-16">
-                <h3 class="text-2xl font-semibold mb-3">Laravel</h3>
-                <p class="text-gray-800">Framework PHP yang elegan untuk pengembangan web modern.</p>
-            </div>
-            <div class="bg-blue-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                <img src="./js.png" alt="JavaScript" class="mb-3 w-16 h-16">
-                <h3 class="text-2xl font-semibold mb-3">JavaScript</h3>
-                <p class="text-gray-800">Bahasa pemrograman untuk interaksi dinamis di website.</p>
-            </div>
-            <div class="bg-blue-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                <img src="./docker.png" alt="Docker" class="mb-3 w-16 h-16">
-                <h3 class="text-2xl font-semibold mb-3">Docker</h3>
-                <p class="text-gray-800">Mengelola aplikasi dalam container yang portabel dan efisien.</p>
-            </div>
-            <div class="bg-green-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                <img src="./database-storage.png" alt="Database" class="mb-3 w-16 h-16">
-                <h3 class="text-2xl font-semibold mb-3">Databases</h3>
-                <p class="text-gray-800">Mengelola data dengan MySQL, PostgreSQL, dan MongoDB.</p>
-            </div>
-            <div class="bg-yellow-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                <img src="./redis.png" alt="Redis" class="mb-3 w-16 h-16">
-                <h3 class="text-2xl font-semibold mb-3">Redis</h3>
-                <p class="text-gray-800">Meningkatkan kecepatan aplikasi dengan caching data.</p>
-            </div>
-            <div class="bg-orange-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                <img src="./html.png" alt="HTML & CSS" class="mb-3 w-16 h-16">
-                <h3 class="text-2xl font-semibold mb-3">HTML & CSS</h3>
-                <p class="text-gray-800">Membangun struktur dan desain website yang responsif.</p>
-            </div>            
-            <div class="bg-indigo-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                <img src="./php.png" alt="PHP" class="mb-3 w-16 h-16">
-                <h3 class="text-2xl font-semibold mb-3">PHP</h3>
-                <p class="text-gray-800">Bahasa pemrograman server-side untuk pengembangan web dinamis.</p>
+                <p class="text-gray-800">Mengembangkan frontend menggunakan framework modern seperti Bootstrap,
+                    membangun backend dengan Laravel atau GIN, mengelola database MySQL, PostgreSQL,Redis, dan MongoDB,
+                    serta melakukan deployment.</p>
             </div>
         </div>
     </section>
-    
+
+    <section id="skills"
+        class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10">
+        <h2 class="text-3xl font-bold text-center mb-6">Skill</h2>
+        <div class="swiper skillSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide bg-pink-300 p-6 rounded-lg shadow-md flex flex-col items-center">
+                    <img src="./go.png" alt="Golang" class="mb-3 w-16 h-16">
+                    <h3 class="text-2xl font-semibold mb-3">Golang</h3>
+                    <p class="text-gray-800">Bahasa pemrograman efisien untuk backend dan sistem terdistribusi.</p>
+                </div>
+                <div class="swiper-slide bg-purple-300 p-6 rounded-lg shadow-md flex flex-col items-center">
+                    <img src="./laravel.png" alt="Laravel" class="mb-3 w-16 h-16">
+                    <h3 class="text-2xl font-semibold mb-3">Laravel</h3>
+                    <p class="text-gray-800">Framework PHP yang elegan untuk pengembangan web modern.</p>
+                </div>
+                <div class="swiper-slide bg-blue-300 p-6 rounded-lg shadow-md flex flex-col items-center">
+                    <img src="./js.png" alt="JavaScript" class="mb-3 w-16 h-16">
+                    <h3 class="text-2xl font-semibold mb-3">JavaScript</h3>
+                    <p class="text-gray-800">Bahasa pemrograman untuk interaksi dinamis di website.</p>
+                </div>
+                <div class="swiper-slide bg-blue-300 p-6 rounded-lg shadow-md flex flex-col items-center">
+                    <img src="./docker.png" alt="Docker" class="mb-3 w-16 h-16">
+                    <h3 class="text-2xl font-semibold mb-3">Docker</h3>
+                    <p class="text-gray-800">Mengelola aplikasi dalam container yang portabel dan efisien.</p>
+                </div>
+                <div class="swiper-slide bg-green-300 p-6 rounded-lg shadow-md flex flex-col items-center">
+                    <img src="./database-storage.png" alt="Database" class="mb-3 w-16 h-16">
+                    <h3 class="text-2xl font-semibold mb-3">Databases</h3>
+                    <p class="text-gray-800">Mengelola data dengan MySQL, PostgreSQL, dan MongoDB.</p>
+                </div>
+                <div class="swiper-slide bg-yellow-300 p-6 rounded-lg shadow-md flex flex-col items-center">
+                    <img src="./redis.png" alt="Redis" class="mb-3 w-16 h-16">
+                    <h3 class="text-2xl font-semibold mb-3">Redis</h3>
+                    <p class="text-gray-800">Meningkatkan kecepatan aplikasi dengan caching data.</p>
+                </div>
+                <div class="swiper-slide bg-orange-300 p-6 rounded-lg shadow-md flex flex-col items-center">
+                    <img src="./html.png" alt="HTML & CSS" class="mb-3 w-16 h-16">
+                    <h3 class="text-2xl font-semibold mb-3">HTML & CSS</h3>
+                    <p class="text-gray-800">Membangun struktur dan desain website yang responsif.</p>
+                </div>
+                <div class="swiper-slide bg-indigo-300 p-6 rounded-lg shadow-md flex flex-col items-center">
+                    <img src="./php.png" alt="PHP" class="mb-3 w-16 h-16">
+                    <h3 class="text-2xl font-semibold mb-3">PHP</h3>
+                    <p class="text-gray-800">Bahasa pemrograman server-side untuk pengembangan web dinamis.</p>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
     <section id="portfolio" class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10">
         <h2 class="text-3xl font-bold text-center mb-6">Proyek</h2>
         <div class="grid md:grid-cols-2 gap-8">
             <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="https://via.placeholder.com/500" alt="Proyek" class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">Nama Proyek</h3>
-                <p class="text-gray-800">Deskripsi proyek singkat.</p>
+                <img src="./p-ecommerce.png" alt="Web App E-commerce"
+                    class="w-full h-56 object-cover rounded-lg">
+                <h3 class="text-2xl font-semibold mt-4">Web App E-commerce</h3>
+                <p class="text-gray-800">Aplikasi berbasis web untuk jual beli barang.</p>
             </div>
             <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="https://via.placeholder.com/500" alt="Proyek" class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">Nama Proyek</h3>
-                <p class="text-gray-800">Deskripsi proyek singkat.</p>
+                <img src="./" alt="BE Showroom App"
+                    class="w-full h-56 object-cover rounded-lg">
+                <h3 class="text-2xl font-semibold mt-4">BE Showroom App</h3>
+                <p class="text-gray-800">Backend untuk aplikasi showroom mobil yang mendukung jual beli dan rental.</p>
+            </div>
+            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
+                <img src="./p-be-POS.png" alt="BE POS" class="w-full h-56 object-cover rounded-lg">
+                <h3 class="text-2xl font-semibold mt-4">BE POS</h3>
+                <p class="text-gray-800">Sistem backend untuk Point of Sale (POS) yang efisien dan scalable.</p>
+            </div>
+            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
+                <img src="./p-be-merchant&bank.png" alt="BE Merchant and Bank"
+                    class="w-full h-56 object-cover rounded-lg">
+                <h3 class="text-2xl font-semibold mt-4">BE Merchant and Bank</h3>
+                <p class="text-gray-800">Integrasi backend untuk merchant dan bank guna mempermudah transaksi digital.
+                </p>
+            </div>
+            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
+                <img src="./p-laundry.png" alt="Web App Laundry" class="w-full h-56 object-cover rounded-lg">
+                <h3 class="text-2xl font-semibold mt-4">Web App Laundry</h3>
+                <p class="text-gray-800">Aplikasi berbasis web untuk manajemen bisnis laundry.</p>
+            </div>
+            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
+                <img src="./p-proposal.png" alt="Web App Pengajuan Proposal"
+                    class="w-full h-56 object-cover rounded-lg">
+                <h3 class="text-2xl font-semibold mt-4">Web App Pengajuan Proposal</h3>
+                <p class="text-gray-800">Platform digital untuk pengajuan dan monitoring proposal.</p>
+            </div>
+            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
+                <img src="./p-elearn.png" alt="Web App E-Education" class="w-full h-56 object-cover rounded-lg">
+                <h3 class="text-2xl font-semibold mt-4">Web App E-Education</h3>
+                <p class="text-gray-800">Sistem pembelajaran online dengan fitur interaktif.</p>
+            </div>
+            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
+                <img src="./p-Fest.png" alt="Web App Festival" class="w-full h-56 object-cover rounded-lg">
+                <h3 class="text-2xl font-semibold mt-4">Web App Festival</h3>
+                <p class="text-gray-800">Aplikasi manajemen acara festival untuk pendaftaran dan tiket.</p>
+            </div>
+            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
+                <img src="./p-film.png" alt="Web App Daftar Film" class="w-full h-56 object-cover rounded-lg">
+                <h3 class="text-2xl font-semibold mt-4">Web App Daftar Film</h3>
+                <p class="text-gray-800">Platform daftar film dengan informasi dan review pengguna.</p>
             </div>
         </div>
     </section>
-    
-    <section id="contact" class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10 text-center">
+
+    <section id="contact"
+        class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10 text-center">
         <h2 class="text-3xl font-bold mb-4">Kontak</h2>
         <p class="text-gray-800">Jangan ragu untuk menghubungi saya untuk diskusi proyek atau konsultasi.</p>
         <p class="mt-4 text-lg"><strong>Email:</strong> fajarsyaa@gmail.com</p>
-        <p class="text-lg"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mukhamad-fajar-syaihu-69484926a">linkedin.com/in/mukhamad-fajar-syaihu-69484926a</a></p>
+        <p class="text-lg"><strong>LinkedIn:</strong> <a
+                href="https://www.linkedin.com/in/mukhamad-fajar-syaihu-69484926a">linkedin.com/in/mukhamad-fajar-syaihu-69484926a</a>
+        </p>
         <p class="text-lg"><strong>GitHub:</strong> <a href="https://github.com/fajarsyaa">github.com/fajarsyaa</a></p>
+        <p class="text-lg"><strong>Whatsapp:</strong> <a href="https://wa.me/620895341248153">0895341248153</a></p>
     </section>
-    
+
     <footer class="text-center py-6 mt-10 bg-gray-900 text-white">
         <p>&copy; 2025 Fajar Syaa - Semua Hak Dilindungi</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var skillSwiper = new Swiper(".skillSwiper", {
+            slidesPerView: 3,
+            spaceBetween: 10,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
 </body>
+
 </html>
