@@ -1,213 +1,813 @@
 <!DOCTYPE html>
-<html lang="id">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Mukhamad Fajar Syaihu Walid - Portfolio</title>
+    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#FFD700',
+                            DEFAULT: '#D4AF37',
+                            dark: '#B8860B',
+                        },
+                        dark: {
+                            lighter: '#1E293B', // slate-800
+                            DEFAULT: '#0F172A', // slate-900
+                            deeper: '#020617',  // slate-950
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(to right, #FFD700, #B8860B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+        }
+        .dark-gold-gradient-bg {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            border: 1px solid #D4AF37;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            border-color: #D4AF37;
+        }
+        .hexagon {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+    </style>
 </head>
-
-<body class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-gray-900">
-    <header class="relative h-screen flex items-center justify-center bg-cover bg-center"
-        style="background-image: url('https://via.placeholder.com/1500x800');">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div
-            class="relative z-10 flex flex-col md:flex-row items-center text-white text-center md:text-left p-6 max-w-6xl mx-auto">
-            <div class="md:w-1/2 flex flex-col items-center md:items-start">
-                <h1 class="text-6xl font-extrabold leading-tight">Halo, Saya <span class="text-yellow-300">Mukhamad
-                        Fajar Syaihu Walid</span></h1>
-                <p class="text-xl mt-3">Seorang <span class="font-semibold">Backend Develooper | Web Developer |
-                        Fullstack Developer</span></p>
-                <p class="mt-4 text-lg max-w-lg">Saya membantu bisnis dan individu menciptakan solusi digital yang
-                    inovatif dan menarik.</p>
-                <a href="#contact"
-                    class="mt-6 inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-6 rounded-lg shadow-lg transition hover:bg-yellow-500">Hubungi
-                    Saya</a>
+<body class="bg-dark text-gray-200 font-sans">
+    <!-- Header with side navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-dark-deeper/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="text-2xl font-bold gold-gradient-text">
+                    Jars Portfolio
+                </a>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-gold font-medium transition-colors relative group">
+                        Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="text-gray-300 hover:text-gold font-medium transition-colors relative group">
+                        About
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#projects" class="text-gray-300 hover:text-gold font-medium transition-colors relative group">
+                        Projects
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#skills" class="text-gray-300 hover:text-gold font-medium transition-colors relative group">
+                        Skills
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="text-gray-300 hover:text-gold font-medium transition-colors relative group">
+                        Contact
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="#contact" class="hidden md:inline-flex gold-gradient-bg text-dark-deeper font-medium py-2 px-6 rounded-full transition-all hover:shadow-lg">
+                        Hubungi Saya
+                    </a>
+                    <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-gold">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-            <div class="md:w-1/2 flex justify-center relative">
-                <img src="./pp.png" alt="Foto Profil" class="w-full h-auto object-cover opacity-80">
+            
+            <!-- Mobile menu (hidden by default) -->
+            <div id="mobile-menu" class="md:hidden hidden py-4 border-t border-gray-800">
+                <nav class="flex flex-col space-y-3">
+                    <a href="#home" class="px-4 py-2 text-gray-300 hover:text-gold font-medium">Home</a>
+                    <a href="#about" class="px-4 py-2 text-gray-300 hover:text-gold font-medium">About</a>
+                    <a href="#projects" class="px-4 py-2 text-gray-300 hover:text-gold font-medium">Projects</a>
+                    <a href="#skills" class="px-4 py-2 text-gray-300 hover:text-gold font-medium">Skills</a>
+                    <a href="#contact" class="px-4 py-2 text-gray-300 hover:text-gold font-medium">Contact</a>
+                </nav>
             </div>
         </div>
     </header>
 
-    <section id="about"
-        class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10 text-center">
-        <h2 class="text-3xl font-bold mb-4">Tentang Saya</h2>
-        <p class="text-gray-700">Programmer berpengalaman dalam pengembangan aplikasi dan integrasi sistem. Sebagai
-            webMethod programmer di Bank BNI, saya membangun middleware untuk menghubungkan microservices secara aman.
-            Berkonstribusi pada aplikasi seperti WONDR by BNI, Agen46, dan BNI Direct. Selain itu, aktif sebagai
-            freelance web developer, mengerjakan aplikasi web dengan fokus pada analisis kebutuhan, pengembangan fitur,
-            dan keamanan. Lulusan Rekayasa Perangkat Lunak, Juara 2 kompetisi Web Design, dan penerima beasiswa dari
-            SEVIMA.</p>
-    </section>
+    <main>
+        <!-- Hero Section with animated elements -->
+        <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden relative">
+            <div class="absolute top-0 right-0 -z-10 w-1/2 h-1/2 bg-gradient-to-bl from-gold/10 to-gold/5 rounded-bl-full blur-3xl"></div>
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-12 md:mb-0">
+                        <div class="inline-block px-4 py-1 rounded-full bg-gold/10 text-gold font-medium text-sm mb-6">
+                            👋 Welcome to my portfolio
+                        </div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                            Halo, Saya <span class="gold-gradient-text">Mukhamad Fajar Syaihu Walid</span>
+                        </h1>
+                        <p class="text-lg text-gray-400 mb-8 max-w-lg">
+                            Seorang <span class="font-semibold">Backend Developer | Web Developer | Fullstack Developer</span><br>            
+                            Saya membantu bisnis dan individu menciptakan solusi digital yang inovatif dan menarik.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#projects" class="gold-gradient-bg text-dark-deeper font-medium py-3 px-8 rounded-full transition-all hover:shadow-lg inline-flex items-center">
+                                Lihat Proyek Saya
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#contact" class="bg-dark-lighter text-gray-200 border border-gold/30 font-medium py-3 px-8 rounded-full transition-all hover:shadow-lg hover:border-gold">
+                                Hubungi Saya
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative">
+                            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-dark-lighter shadow-xl">
+                                <img src="./pp.png" alt="Mukhamad Fajar Syaihu Walid" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute -bottom-4 -right-4 bg-dark-lighter rounded-full p-4 shadow-lg">
+                                <div class="gold-gradient-bg rounded-full w-16 h-16 flex items-center justify-center text-dark-deeper">
+                                    <i class="fas fa-code text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats or clients -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 text-center">
+                    <div class="p-6 bg-dark-lighter rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="text-3xl font-bold gold-gradient-text mb-2">3+</div>
+                        <div class="text-gray-400">Years Experience</div>
+                    </div>
+                    <div class="p-6 bg-dark-lighter rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="text-3xl font-bold gold-gradient-text mb-2">10+</div>
+                        <div class="text-gray-400">Projects Completed</div>
+                    </div>
+                    <div class="p-6 bg-dark-lighter rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="text-3xl font-bold gold-gradient-text mb-2">7+</div>
+                        <div class="text-gray-400">Happy Clients</div>
+                    </div>
+                    <div class="p-6 bg-dark-lighter rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="text-3xl font-bold gold-gradient-text mb-2">2+</div>
+                        <div class="text-gray-400">Awards Won</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="services"
-        class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10 text-center">
-        <h2 class="text-3xl font-bold mb-4">Layanan</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-blue-300 p-6 rounded-lg shadow-md">
-                <h3 class="text-2xl font-semibold mb-3">Backend Developer</h3>
-                <p class="text-gray-800">Mengembangkan API yang scalable dan aman, menerapkan JWT untuk otentikasi,
-                    mengintegrasikan API pihak ketiga, serta menangani throttling untuk menjaga performa sistem.</p>
+        <!-- About Section with timeline -->
+        <section id="about" class="py-20 md:py-32 bg-dark-deeper">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="md:w-2/5">
+                        <div class="relative">
+                            <img src="./fajar.jpeg" alt="About Me" class="rounded-2xl shadow-xl w-full max-w-md mx-auto">
+                            <div class="absolute -bottom-6 -right-6 gold-gradient-bg p-6 rounded-xl shadow-lg">
+                                <div class="text-dark-deeper text-center">
+                                    <div class="text-3xl font-bold">3+</div>
+                                    <div class="text-sm">Years of Experience</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-3/5">
+                        <div class="inline-block px-4 py-1 rounded-full bg-gold/10 text-gold font-medium text-sm mb-4">
+                            Tentang Saya
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gold">
+                            Programmer berpengalaman dalam pengembangan aplikasi
+                        </h2>
+                        <p class="text-gray-400 mb-8">
+                            Programmer berpengalaman dalam pengembangan aplikasi dan integrasi sistem. Sebagai webMethod programmer di Bank BNI, saya membangun middleware untuk menghubungkan microservices secara aman. Berkonstribusi pada aplikasi seperti WONDR by BNI, Agen46, dan BNI Direct.
+                        </p>
+                        <p class="text-gray-400 mb-8">
+                            Selain itu, aktif sebagai freelance web developer, mengerjakan aplikasi web dengan fokus pada analisis kebutuhan, pengembangan fitur, dan keamanan. Lulusan Rekayasa Perangkat Lunak, Juara 2 kompetisi Web Design, dan penerima beasiswa dari SEVIMA.
+                        </p>
+                                                
+                        <!-- Timeline -->
+                        <div class="space-y-6 mt-12">
+                            <h3 class="text-xl font-bold mb-4 text-gold">Perjalanan Saya</h3>
+
+                            <div class="flex">
+                                <div class="flex flex-col items-center mr-4">
+                                    <div class="w-3 h-3 rounded-full gold-gradient-bg"></div>
+                                    <div class="w-0.5 h-full bg-gray-700"></div>
+                                </div>
+                                <div class="pb-8">
+                                    <div class="text-lg font-bold text-gray-200">Programmer PT Adidata Informatika</div>
+                                    <div class="text-gold font-medium">Nov 23 - Nov 24</div>
+                                    <div class="text-gray-400 mt-2">Junior Programmer.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex flex-col items-center mr-4">
+                                    <div class="w-3 h-3 rounded-full gold-gradient-bg"></div>
+                                    <div class="w-0.5 h-full bg-gray-700"></div>
+                                </div>
+                                <div class="pb-8">
+                                    <div class="text-lg font-bold text-gray-200">Programmer webMethod di Bank BNI</div>
+                                    <div class="text-gold font-medium">Nov 23 - Nov 24</div>
+                                    <div class="text-gray-400 mt-2">Membangun middleware untuk menghubungkan microservices dengan aman.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex flex-col items-center mr-4">
+                                    <div class="w-3 h-3 rounded-full gold-gradient-bg"></div>
+                                    <div class="w-0.5 h-full bg-gray-700"></div>
+                                </div>
+                                <div class="pb-8">
+                                    <div class="text-lg font-bold text-gray-200">Freelance Web Developer</div>
+                                    <div class="text-gold font-medium">Sedang Berlangsung</div>
+                                    <div class="text-gray-400 mt-2">Mengembangkan aplikasi web dengan fokus pada analisis kebutuhan, pengembangan fitur, dan keamanan.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex flex-col items-center mr-4">
+                                    <div class="w-3 h-3 rounded-full gold-gradient-bg"></div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-bold text-gray-200">Sarjana Teknik Perangkat Lunak</div>
+                                    <div class="text-gold font-medium">Belum Lulus (Semester 6)</div>
+                                    <div class="text-gray-400 mt-2">Juara 2 dalam kompetisi Desain Web dan penerima beasiswa dari SEVIMA.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="bg-purple-300 p-6 rounded-lg shadow-md">
-                <h3 class="text-2xl font-semibold mb-3">Web Developer</h3>
-                <p class="text-gray-800">Membangun website responsif dan modern dengan teknologi terkini, mengoptimalkan
-                    kecepatan dan performa, serta mengintegrasikan website dengan CMS dan berbagai fitur interaktif.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 md:py-32 bg-dark">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-block px-4 py-1 rounded-full bg-gold/10 text-gold font-medium text-sm mb-4">
+                        Layanan
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gold">
+                        Aku Bisa Menjadi
+                    </h2>
+                    <p class="text-gray-400">
+                        Saya menawarkan berbagai layanan pengembangan untuk memenuhi kebutuhan digital Anda.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="w-16 h-16 rounded-full gold-gradient-bg flex items-center justify-center text-dark-deeper mb-6">
+                            <i class="fas fa-server text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gold">Backend Developer</h3>
+                        <p class="text-gray-400">
+                            Mengembangkan API yang scalable dan aman, menerapkan JWT untuk otentikasi, mengintegrasikan API pihak ketiga, serta menangani throttling untuk menjaga performa sistem.
+                        </p>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="w-16 h-16 rounded-full gold-gradient-bg flex items-center justify-center text-dark-deeper mb-6">
+                            <i class="fas fa-laptop-code text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gold">Web Developer</h3>
+                        <p class="text-gray-400">
+                            Membangun website responsif dan modern dengan teknologi terkini, mengoptimalkan kecepatan dan performa, serta mengintegrasikan website dengan CMS dan berbagai fitur interaktif.
+                        </p>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="w-16 h-16 rounded-full gold-gradient-bg flex items-center justify-center text-dark-deeper mb-6">
+                            <i class="fas fa-code-branch text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gold">Fullstack Developer</h3>
+                        <p class="text-gray-400">
+                            Mengembangkan frontend menggunakan framework modern seperti Bootstrap, membangun backend dengan Laravel atau GIN, mengelola database MySQL, PostgreSQL, Redis, dan MongoDB, serta melakukan deployment.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="bg-pink-300 p-6 rounded-lg shadow-md">
-                <h3 class="text-2xl font-semibold mb-3">Fullstack Developer</h3>
-                <p class="text-gray-800">Mengembangkan frontend menggunakan framework modern seperti Bootstrap,
-                    membangun backend dengan Laravel atau GIN, mengelola database MySQL, PostgreSQL,Redis, dan MongoDB,
-                    serta melakukan deployment.</p>
+        </section>
+
+        <!-- Projects Section with cards -->
+        <section id="projects" class="py-20 md:py-32 bg-dark-deeper">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-block px-4 py-1 rounded-full bg-gold/10 text-gold font-medium text-sm mb-4">
+                        My Portfolio
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gold">
+                        Proyek
+                    </h2>
+                    <p class="text-gray-400">
+                        Berikut adalah beberapa proyek yang telah saya kerjakan.
+                    </p>
+                </div>
+                
+                <!-- Projects grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-dark-lighter rounded-xl overflow-hidden shadow-md border border-gray-800 card-hover">
+                        <div class="relative">
+                            <img src="./p-ecommerce.png" alt="Web App E-commerce" class="w-full h-60 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">
+                                Web App
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gold">Web App E-commerce</h3>
+                            <p class="text-gray-400 mb-4">
+                                Aplikasi berbasis web untuk jual beli barang.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Laravel</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Bootstrap</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="https://github.com/fajarsyaa" class="text-primary font-medium inline-flex items-center hover:underline">
+                                    View Project <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <a href="https://github.com/fajarsyaa" class="text-gray-600 hover:text-gray-900">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="bg-dark-lighter rounded-xl overflow-hidden shadow-md border border-gray-800 card-hover">
+                        <div class="relative">
+                            <img src="./p-laundry.png" alt="Web App Laundry" class="w-full h-60 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">
+                                Web App
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gold">Web App Laundry</h3>
+                            <p class="text-gray-400 mb-4">
+                                Aplikasi berbasis web untuk manajemen bisnis laundry.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">PHP</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">MySQL</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">JavaScript</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Laravel</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Bootstrap</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="https://github.com/fajarsyaa" class="text-primary font-medium inline-flex items-center hover:underline">
+                                    View Project <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <a href="https://github.com/fajarsyaa" class="text-gray-600 hover:text-gray-900">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="bg-dark-lighter rounded-xl overflow-hidden shadow-md border border-gray-800 card-hover">
+                        <div class="relative">
+                            <img src="./p-be-POS.png" alt="BE POS" class="w-full h-60 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">
+                                Backend
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gold">BE POS</h3>
+                            <p class="text-gray-400 mb-4">
+                                Sistem backend untuk Point of Sale (POS) yang efisien dan scalable.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Golang</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">GIN</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="https://github.com/fajarsyaa" class="text-primary font-medium inline-flex items-center hover:underline">
+                                    View Project <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <a href="https://github.com/fajarsyaa" class="text-gray-600 hover:text-gray-900">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="bg-dark-lighter rounded-xl overflow-hidden shadow-md border border-gray-800 card-hover">
+                        <div class="relative">
+                            <img src="./p-be-merchant&bank.png" alt="BE Merchant and Bank" class="w-full h-60 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">
+                                Backend
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gold">BE Merchant and Bank</h3>
+                            <p class="text-gray-400 mb-4">
+                                Integrasi backend untuk merchant dan bank guna mempermudah transaksi digital.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Golang</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">GIN</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">API Integration</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="https://github.com/fajarsyaa" class="text-primary font-medium inline-flex items-center hover:underline">
+                                    View Project <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <a href="https://github.com/fajarsyaa" class="text-gray-600 hover:text-gray-900">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="bg-dark-lighter rounded-xl overflow-hidden shadow-md border border-gray-800 card-hover">
+                        <div class="relative">
+                            <img src="https://placehold.co/600x400" alt="BE Showroom App" class="w-full h-60 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">
+                                Backend
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gold">BE Showroom App</h3>
+                            <p class="text-gray-400 mb-4">
+                                Backend untuk aplikasi showroom mobil yang mendukung jual beli dan rental.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Golang</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">GIN</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="https://github.com/fajarsyaa" class="text-primary font-medium inline-flex items-center hover:underline">
+                                    View Project <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <a href="https://github.com/fajarsyaa" class="text-gray-600 hover:text-gray-900">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="bg-dark-lighter rounded-xl overflow-hidden shadow-md border border-gray-800 card-hover">
+                        <div class="relative">
+                            <img src="./p-proposal.png" alt="Web App Pengajuan Proposal" class="w-full h-60 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">
+                                Web App
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gold">Web App Pengajuan Proposal</h3>
+                            <p class="text-gray-400 mb-4">
+                                Platform digital untuk pengajuan dan monitoring proposal.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Laravel</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Bootstrap</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">JavaScript</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="https://github.com/fajarsyaa" class="text-primary font-medium inline-flex items-center hover:underline">
+                                    View Project <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <a href="https://github.com/fajarsyaa" class="text-gray-600 hover:text-gray-900">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 7 -->
+                    <div class="bg-dark-lighter rounded-xl overflow-hidden shadow-md border border-gray-800 card-hover">
+                        <div class="relative">
+                            <img src="./p-elearn.png" alt="Web App E-Education" class="w-full h-60 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">
+                                Web App
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gold">Web App E-Education</h3>
+                            <p class="text-gray-400 mb-4">
+                                Sistem pembelajaran online dengan fitur interaktif.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">PHP</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">JavaScript</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Bootstrap</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Laravel</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="https://github.com/fajarsyaa" class="text-primary font-medium inline-flex items-center hover:underline">
+                                    View Project <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <a href="https://github.com/fajarsyaa" class="text-gray-600 hover:text-gray-900">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 8 -->
+                    <div class="bg-dark-lighter rounded-xl overflow-hidden shadow-md border border-gray-800 card-hover">
+                        <div class="relative">
+                            <img src="./p-Fest.png" alt="Web App Festival" class="w-full h-60 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">
+                                Web App
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gold">Web App Festival</h3>
+                            <p class="text-gray-400 mb-4">
+                                Aplikasi manajemen acara festival untuk pendaftaran dan tiket.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Laravel</span>                                
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">JavaScript</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Bootstrap</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="https://github.com/fajarsyaa" class="text-primary font-medium inline-flex items-center hover:underline">
+                                    View Project <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <a href="https://github.com/fajarsyaa" class="text-gray-600 hover:text-gray-900">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 9 -->
+                    <div class="bg-dark-lighter rounded-xl overflow-hidden shadow-md border border-gray-800 card-hover">
+                        <div class="relative">
+                            <img src="./p-film.png" alt="Web App Daftar Film" class="w-full h-60 object-cover">
+                            <div class="absolute top-4 left-4 bg-dark/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">
+                                Web App
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gold">Web App Daftar Film</h3>
+                            <p class="text-gray-400 mb-4">
+                                Platform daftar film dengan informasi dan review pengguna.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">JavaScript</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Bootstrap</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">Laravel</span>
+                                <span class="px-3 py-1 bg-dark rounded-full text-xs font-medium text-gray-300 border border-gray-700">PostgreSQL</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="https://github.com/fajarsyaa" class="text-primary font-medium inline-flex items-center hover:underline">
+                                    View Project <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <a href="https://github.com/fajarsyaa" class="text-gray-600 hover:text-gray-900">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section with new design -->
+        <section id="skills" class="py-20 md:py-32 bg-dark">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-block px-4 py-1 rounded-full bg-gold/10 text-gold font-medium text-sm mb-4">
+                        My Skills
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gold">
+                        Skill
+                    </h2>
+                    <p class="text-gray-400">
+                        Berikut adalah keahlian teknis yang saya kuasai.
+                    </p>
+                </div>
+                
+                <!-- New Skills Design with Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Skill 1 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="flex flex-col items-center">
+                            <img src="./go.png" alt="Golang" class="w-16 h-16 mb-4">
+                            <h3 class="text-xl font-bold text-gold mb-2">Golang</h3>
+                            <p class="text-gray-400 text-center">
+                                Bahasa pemrograman efisien untuk backend dan sistem terdistribusi.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill 2 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="flex flex-col items-center">
+                            <img src="./laravel.png" alt="Laravel" class="w-16 h-16 mb-4">
+                            <h3 class="text-xl font-bold text-gold mb-2">Laravel</h3>
+                            <p class="text-gray-400 text-center">
+                                Framework PHP yang elegan untuk pengembangan web modern.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill 3 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="flex flex-col items-center">
+                            <img src="./js.png" alt="JavaScript" class="w-16 h-16 mb-4">
+                            <h3 class="text-xl font-bold text-gold mb-2">JavaScript</h3>
+                            <p class="text-gray-400 text-center">
+                                Bahasa pemrograman untuk interaksi dinamis di website.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill 4 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="flex flex-col items-center">
+                            <img src="./docker.png" alt="Docker" class="w-16 h-16 mb-4">
+                            <h3 class="text-xl font-bold text-gold mb-2">Docker</h3>
+                            <p class="text-gray-400 text-center">
+                                Mengelola aplikasi dalam container yang portabel dan efisien.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill 5 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="flex flex-col items-center">
+                            <img src="./database-storage.png" alt="Database" class="w-16 h-16 mb-4">
+                            <h3 class="text-xl font-bold text-gold mb-2">Databases</h3>
+                            <p class="text-gray-400 text-center">
+                                Mengelola data dengan MySQL, PostgreSQL, dan MongoDB.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill 6 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="flex flex-col items-center">
+                            <img src="./redis.png" alt="Redis" class="w-16 h-16 mb-4">
+                            <h3 class="text-xl font-bold text-gold mb-2">Redis</h3>
+                            <p class="text-gray-400 text-center">
+                                Meningkatkan kecepatan aplikasi dengan caching data.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill 7 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="flex flex-col items-center">
+                            <img src="./html.png" alt="HTML & CSS" class="w-16 h-16 mb-4">
+                            <h3 class="text-xl font-bold text-gold mb-2">HTML & CSS</h3>
+                            <p class="text-gray-400 text-center">
+                                Membangun struktur dan desain website yang responsif.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill 8 -->
+                    <div class="bg-dark-lighter p-8 rounded-xl shadow-md border border-gray-800 card-hover">
+                        <div class="flex flex-col items-center">
+                            <img src="./php.png" alt="PHP" class="w-16 h-16 mb-4">
+                            <h3 class="text-xl font-bold text-gold mb-2">PHP</h3>
+                            <p class="text-gray-400 text-center">
+                                Bahasa pemrograman server-side untuk pengembangan web dinamis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (without form) -->
+        <section id="contact" class="py-20 md:py-32 relative overflow-hidden">
+            <div class="absolute top-0 left-0 -z-10 w-1/2 h-1/2 bg-gradient-to-br from-gold/10 to-gold/5 rounded-br-full blur-3xl"></div>
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <div class="inline-block px-4 py-1 rounded-full bg-gold/10 text-gold font-medium text-sm mb-4">
+                        Kontak
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gold">
+                        Hubungi Saya
+                    </h2>
+                    <p class="text-gray-400 mb-12">
+                        Jangan ragu untuk menghubungi saya untuk diskusi proyek atau konsultasi.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <div class="bg-dark-lighter p-6 rounded-xl shadow-md border border-gray-800 card-hover">
+                            <div class="w-16 h-16 rounded-full gold-gradient-bg flex items-center justify-center text-dark-deeper mx-auto mb-4">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gold mb-2">Email</h3>
+                            <p class="text-gray-300">fajarsyaa@gmail.com</p>
+                        </div>
+                        
+                        <div class="bg-dark-lighter p-6 rounded-xl shadow-md border border-gray-800 card-hover">
+                            <div class="w-16 h-16 rounded-full gold-gradient-bg flex items-center justify-center text-dark-deeper mx-auto mb-4">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gold mb-2">WhatsApp</h3>
+                            <p class="text-gray-300">0895341248153</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <div class="bg-dark-lighter p-6 rounded-xl shadow-md border border-gray-800 card-hover">
+                            <div class="w-16 h-16 rounded-full gold-gradient-bg flex items-center justify-center text-dark-deeper mx-auto mb-4">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gold mb-2">LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/mukhamad-fajar-syaihu-69484926a" class="text-gray-300 hover:text-gold">linkedin.com/in/mukhamad-fajar-syaihu-69484926a</a>
+                        </div>
+                        
+                        <div class="bg-dark-lighter p-6 rounded-xl shadow-md border border-gray-800 card-hover">
+                            <div class="w-16 h-16 rounded-full gold-gradient-bg flex items-center justify-center text-dark-deeper mx-auto mb-4">
+                                <i class="fab fa-github text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gold mb-2">GitHub</h3>
+                            <a href="https://github.com/fajarsyaa" class="text-gray-300 hover:text-gold">github.com/fajarsyaa</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <a href="mailto:fajarsyaa@gmail.com" class="inline-flex items-center justify-center gold-gradient-bg text-dark-deeper font-medium py-3 px-8 rounded-full transition-all hover:shadow-lg">
+                            Kirim Email <i class="fas fa-paper-plane ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gold-gradient-text">
+                        Jars Portfolio
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
+                    <a href="#home" class="text-gray-400 hover:text-gold transition-colors">Home</a>
+                    <a href="#about" class="text-gray-400 hover:text-gold transition-colors">About</a>
+                    <a href="#projects" class="text-gray-400 hover:text-gold transition-colors">Projects</a>
+                    <a href="#skills" class="text-gray-400 hover:text-gold transition-colors">Skills</a>
+                    <a href="#contact" class="text-gray-400 hover:text-gold transition-colors">Contact</a>
+                </div>
+                <div>
+                    <p class="text-gray-400">
+                        © <span id="current-year"></span> Mukhamad Fajar Syaihu Walid.
+                    </p>
+                </div>
             </div>
         </div>
-    </section>
-
-    <section id="skills"
-        class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10">
-        <h2 class="text-3xl font-bold text-center mb-6">Skill</h2>
-        <div class="swiper skillSwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide bg-pink-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                    <img src="./go.png" alt="Golang" class="mb-3 w-16 h-16">
-                    <h3 class="text-2xl font-semibold mb-3">Golang</h3>
-                    <p class="text-gray-800">Bahasa pemrograman efisien untuk backend dan sistem terdistribusi.</p>
-                </div>
-                <div class="swiper-slide bg-purple-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                    <img src="./laravel.png" alt="Laravel" class="mb-3 w-16 h-16">
-                    <h3 class="text-2xl font-semibold mb-3">Laravel</h3>
-                    <p class="text-gray-800">Framework PHP yang elegan untuk pengembangan web modern.</p>
-                </div>
-                <div class="swiper-slide bg-blue-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                    <img src="./js.png" alt="JavaScript" class="mb-3 w-16 h-16">
-                    <h3 class="text-2xl font-semibold mb-3">JavaScript</h3>
-                    <p class="text-gray-800">Bahasa pemrograman untuk interaksi dinamis di website.</p>
-                </div>
-                <div class="swiper-slide bg-blue-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                    <img src="./docker.png" alt="Docker" class="mb-3 w-16 h-16">
-                    <h3 class="text-2xl font-semibold mb-3">Docker</h3>
-                    <p class="text-gray-800">Mengelola aplikasi dalam container yang portabel dan efisien.</p>
-                </div>
-                <div class="swiper-slide bg-green-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                    <img src="./database-storage.png" alt="Database" class="mb-3 w-16 h-16">
-                    <h3 class="text-2xl font-semibold mb-3">Databases</h3>
-                    <p class="text-gray-800">Mengelola data dengan MySQL, PostgreSQL, dan MongoDB.</p>
-                </div>
-                <div class="swiper-slide bg-yellow-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                    <img src="./redis.png" alt="Redis" class="mb-3 w-16 h-16">
-                    <h3 class="text-2xl font-semibold mb-3">Redis</h3>
-                    <p class="text-gray-800">Meningkatkan kecepatan aplikasi dengan caching data.</p>
-                </div>
-                <div class="swiper-slide bg-orange-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                    <img src="./html.png" alt="HTML & CSS" class="mb-3 w-16 h-16">
-                    <h3 class="text-2xl font-semibold mb-3">HTML & CSS</h3>
-                    <p class="text-gray-800">Membangun struktur dan desain website yang responsif.</p>
-                </div>
-                <div class="swiper-slide bg-indigo-300 p-6 rounded-lg shadow-md flex flex-col items-center">
-                    <img src="./php.png" alt="PHP" class="mb-3 w-16 h-16">
-                    <h3 class="text-2xl font-semibold mb-3">PHP</h3>
-                    <p class="text-gray-800">Bahasa pemrograman server-side untuk pengembangan web dinamis.</p>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10">
-        <h2 class="text-3xl font-bold text-center mb-6">Proyek</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="./p-ecommerce.png" alt="Web App E-commerce"
-                    class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">Web App E-commerce</h3>
-                <p class="text-gray-800">Aplikasi berbasis web untuk jual beli barang.</p>
-            </div>
-            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="./" alt="BE Showroom App"
-                    class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">BE Showroom App</h3>
-                <p class="text-gray-800">Backend untuk aplikasi showroom mobil yang mendukung jual beli dan rental.</p>
-            </div>
-            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="./p-be-POS.png" alt="BE POS" class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">BE POS</h3>
-                <p class="text-gray-800">Sistem backend untuk Point of Sale (POS) yang efisien dan scalable.</p>
-            </div>
-            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="./p-be-merchant&bank.png" alt="BE Merchant and Bank"
-                    class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">BE Merchant and Bank</h3>
-                <p class="text-gray-800">Integrasi backend untuk merchant dan bank guna mempermudah transaksi digital.
-                </p>
-            </div>
-            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="./p-laundry.png" alt="Web App Laundry" class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">Web App Laundry</h3>
-                <p class="text-gray-800">Aplikasi berbasis web untuk manajemen bisnis laundry.</p>
-            </div>
-            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="./p-proposal.png" alt="Web App Pengajuan Proposal"
-                    class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">Web App Pengajuan Proposal</h3>
-                <p class="text-gray-800">Platform digital untuk pengajuan dan monitoring proposal.</p>
-            </div>
-            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="./p-elearn.png" alt="Web App E-Education" class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">Web App E-Education</h3>
-                <p class="text-gray-800">Sistem pembelajaran online dengan fitur interaktif.</p>
-            </div>
-            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="./p-Fest.png" alt="Web App Festival" class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">Web App Festival</h3>
-                <p class="text-gray-800">Aplikasi manajemen acara festival untuk pendaftaran dan tiket.</p>
-            </div>
-            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
-                <img src="./p-film.png" alt="Web App Daftar Film" class="w-full h-56 object-cover rounded-lg">
-                <h3 class="text-2xl font-semibold mt-4">Web App Daftar Film</h3>
-                <p class="text-gray-800">Platform daftar film dengan informasi dan review pengguna.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact"
-        class="max-w-5xl mx-auto p-12 bg-gradient-to-r from-white/80 to-gray-200/80 shadow-lg rounded-lg mt-10 text-center">
-        <h2 class="text-3xl font-bold mb-4">Kontak</h2>
-        <p class="text-gray-800">Jangan ragu untuk menghubungi saya untuk diskusi proyek atau konsultasi.</p>
-        <p class="mt-4 text-lg"><strong>Email:</strong> fajarsyaa@gmail.com</p>
-        <p class="text-lg"><strong>LinkedIn:</strong> <a
-                href="https://www.linkedin.com/in/mukhamad-fajar-syaihu-69484926a">linkedin.com/in/mukhamad-fajar-syaihu-69484926a</a>
-        </p>
-        <p class="text-lg"><strong>GitHub:</strong> <a href="https://github.com/fajarsyaa">github.com/fajarsyaa</a></p>
-        <p class="text-lg"><strong>Whatsapp:</strong> <a href="https://wa.me/620895341248153">0895341248153</a></p>
-    </section>
-
-    <footer class="text-center py-6 mt-10 bg-gray-900 text-white">
-        <p>&copy; 2025 Fajar Syaa - Semua Hak Dilindungi</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- Simple JavaScript for mobile menu toggle and current year -->
     <script>
-        var skillSwiper = new Swiper(".skillSwiper", {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            loop: true,
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-            },
-            breakpoints: {
-                640: { slidesPerView: 2 },
-                768: { slidesPerView: 3 }
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
-
 </html>
